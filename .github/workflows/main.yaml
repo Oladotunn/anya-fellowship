@@ -7,21 +7,6 @@ on:
       - releases/*
 
 jobs:
-  install_dependencies:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [macos-latest]  
-        node-version: [16.x]    
-    steps:
-      - uses: actions/checkout@v3
-      - name: Setup Node Version
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version}}
-          cache: npm
-      - run: npm install --save-dev hardhat
-
   test:
     needs: install_dependencies
     runs-on: ${{ matrix.os }}
@@ -36,7 +21,10 @@ jobs:
         with:
           node-version: ${{ matrix.node-version}}
           cache: npm
-      - run: npx hardhat test       
+      - run: |
+          npm install --save-dev hardhat
+          npx hardhat test
+                 
 
   deploy:
     needs: test
@@ -52,6 +40,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version}}
           cache: npm
-      - run:  npx hardhat run scripts/deploy.js --network kovan        
+      - run:  |
+          npm install --save-dev hardhat
+          npx hardhat run scripts/deploy.js --network kovan        
 
          
