@@ -8,7 +8,6 @@ on:
 
 jobs:
   test:
-    needs: install_dependencies
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
