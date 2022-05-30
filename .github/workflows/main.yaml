@@ -6,7 +6,7 @@ on:
       - main
       - releases/*
     paths:
-      - "Task2/"    
+      - "Task2/**"    
 env:
   WORK_DIR: "Task2/"
 
