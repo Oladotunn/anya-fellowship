@@ -5,6 +5,11 @@ on:
     branches:
       - main
       - releases/*
+    paths:
+      - "Task2/**"    
+env:
+  WORK_DIR: "Task2/"
+
 jobs:
   build:
     runs-on: ${{ matrix.os }}
@@ -19,6 +24,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version}}
           cache: npm
-      - run: npm install --save-dev hardhat
-      - run: npx hardhat run scripts/deploy.js --network kovan
-        
+      - run: |
+          cd $WORK_DIR
+          npm install --save-dev hardhat
+          npx hardhat run scripts/deploy.js --network kovan
+          npx hardhat test
