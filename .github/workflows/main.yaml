@@ -5,10 +5,10 @@ on:
     branches:
       - main
       - releases/*
-    paths:
-      - "Task2/**"    
-env:
-  WORK_DIR: "Task2/"
+#     paths:
+#       - "Task2/**"    
+# env:
+#   WORK_DIR: "Task2/"
 
 jobs:
   build:
