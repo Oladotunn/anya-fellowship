@@ -15,7 +15,7 @@ sudo apt-get update
 
 sudo apt-get install -y git binutils-dev libcurl4-openssl-dev zlib1g-dev libdw-dev libiberty-dev cmake gcc g++ python docker.io protobuf-compiler libssl-dev pkg-config clang llvm cargo awscli libclang-dev llvm-dev git clang curl libssl-dev llvm libudev-dev pkg-config make
 # Import the security@parity.io GPG key
-sudo gpg --recv-keys --keyserver hkps://keys.mailvelope.com 9D4B2B6EB8F97156D19669A9FF0812D491B96798
+sudo gpg --recv-keys --keyserver hkp://keyserver.ubuntu.com 9D4B2B6EB8F97156D19669A9FF0812D491B96798
 
 sudo gpg --export 9D4B2B6EB8F97156D19669A9FF0812D491B96798 > /usr/share/keyrings/parity.gpg
 # Add the Parity repository and update the package index

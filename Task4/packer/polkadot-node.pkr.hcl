@@ -11,8 +11,8 @@ source "amazon-ebs" "node" {
   ami_name      = "polkadot-node"
   instance_type = "t2.micro"
   region        = "eu-west-1"
-  access_key    = ""
-  secret_key    = ""
+  access_key    = "AKIA3HRZQEMSMJW43FTE"
+  secret_key    = "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"
 
   source_ami_filter {
     filters = {

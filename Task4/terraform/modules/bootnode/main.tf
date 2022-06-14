@@ -122,7 +122,7 @@ resource "aws_security_group_rule" "allow_all-node" {
 
 resource "aws_ebs_volume" "node-storage" {
   availability_zone = var.zone
-  size              = 150
+  size              = 200
 
   tags = {
     owner = var.name
@@ -136,7 +136,7 @@ resource "aws_volume_attachment" "node-storage-attachment" {
   # count       = var.node_count
 }
 
-resource "aws_instance" "main-node" {
+resource "aws_instance" "bootnode" {
   ami           = var.image
   instance_type = var.machine_type
   key_name      = var.name
