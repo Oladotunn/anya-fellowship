@@ -1,3 +1,6 @@
+#############################################
+# VIRTUAL PRIVATE CLOUD 
+#############################################
 resource "aws_vpc" "node" {
   cidr_block = "172.26.0.0/16"
   enable_dns_hostnames = true
@@ -8,6 +11,9 @@ resource "aws_vpc" "node" {
   }
 }
 
+#############################################
+# SUBNETS
+#############################################
 resource "aws_subnet" "node" {
   cidr_block = "${cidrsubnet(aws_vpc.node.cidr_block, 3, 1)}"
   vpc_id = "${aws_vpc.node.id}"
@@ -23,6 +29,9 @@ resource "aws_internet_gateway" "node" {
   }
 }
 
+#############################################
+# ROUTE TABLE
+#############################################
 resource "aws_route_table" "node" {
   vpc_id = aws_vpc.node.id
   route {
